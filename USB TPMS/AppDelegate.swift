@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  USB TPMS
+//  Peripheral
 //
-//  Created by 王建智 on 2019/8/28.
-//  Copyright © 2019 王建智. All rights reserved.
+//  Created by KoKang Chu on 2017/7/17.
+//  Copyright © 2017年 KoKang Chu. All rights reserved.
 //
 
 import Cocoa
@@ -11,7 +11,7 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
+ var db:OpaquePointer? = nil
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
