@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14868"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -100,7 +100,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XoB-Ue-cyW">
-                                <rect key="frame" x="10" y="238" width="150" height="22"/>
+                                <rect key="frame" x="10" y="239" width="150" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="nMk-ZP-Izk"/>
                                 </constraints>
@@ -153,7 +153,7 @@
                                 <rect key="frame" x="10" y="30" width="656" height="50"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p3S-eB-pqm">
-                                        <rect key="frame" x="-2" y="17" width="53" height="17"/>
+                                        <rect key="frame" x="-2" y="17" width="54" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="ID1" id="hD6-UU-ytk">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -161,7 +161,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bSm-K2-Sih">
-                                        <rect key="frame" x="57" y="14" width="100" height="22"/>
+                                        <rect key="frame" x="58" y="15" width="100" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="hlg-wY-5zE">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -169,7 +169,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="duc-F3-Br6">
-                                        <rect key="frame" x="163" y="17" width="104" height="17"/>
+                                        <rect key="frame" x="164" y="17" width="54" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="ID2" id="Eca-Gp-GB9">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -177,7 +177,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bTP-rx-b8C">
-                                        <rect key="frame" x="273" y="14" width="100" height="22"/>
+                                        <rect key="frame" x="224" y="15" width="100" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="GlT-ju-AVK">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -185,7 +185,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mkw-ci-ob7">
-                                        <rect key="frame" x="379" y="17" width="29" height="17"/>
+                                        <rect key="frame" x="330" y="17" width="54" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="ID3" id="I7K-yD-Edn">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -193,7 +193,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dFQ-NW-CCg">
-                                        <rect key="frame" x="414" y="14" width="100" height="22"/>
+                                        <rect key="frame" x="390" y="15" width="100" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ucy-OR-Ron">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -201,7 +201,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uWr-sO-AnW">
-                                        <rect key="frame" x="520" y="17" width="30" height="17"/>
+                                        <rect key="frame" x="496" y="17" width="54" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="ID4" id="BbL-mo-InY">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -209,7 +209,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hVP-r1-S97">
-                                        <rect key="frame" x="556" y="14" width="100" height="22"/>
+                                        <rect key="frame" x="556" y="15" width="100" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="DKw-bd-bf6">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -301,7 +301,7 @@
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="img_Bar" id="BKd-Pq-M6v"/>
                                     </imageView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6uL-b6-vda">
-                                        <rect key="frame" x="124" y="523" width="296" height="22"/>
+                                        <rect key="frame" x="124" y="524" width="296" height="21"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Orange TPMS Programming System" id="1xv-42-Vcw">
                                             <font key="font" metaFont="system" size="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -474,7 +474,7 @@
                                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon_program" id="Mzs-69-05t"/>
                                                     </imageView>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m3D-BN-JC2">
-                                                        <rect key="frame" x="76" y="26" width="86" height="17"/>
+                                                        <rect key="frame" x="76" y="26" width="86" height="16"/>
                                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="PROGRAM" id="Boz-Ro-pDo">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -615,7 +615,7 @@
                                                 <color key="color" red="0.1101967469" green="0.27926084400000001" blue="0.41178178789999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </colorWell>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gEr-8I-cH5">
-                                                <rect key="frame" x="8" y="454" width="544" height="34"/>
+                                                <rect key="frame" x="8" y="455" width="544" height="32"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" id="Gqh-tZ-VuR">
                                                     <font key="font" metaFont="system"/>
                                                     <string key="title">Vehicle Selection, please select Make, Model, Year, tire position, 
@@ -635,7 +635,7 @@ and then click "Next"</string>
                                                         <color key="color" red="0.073717825109999996" green="0.213145107" blue="0.3215825558" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </colorWell>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="he6-JZ-ELc">
-                                                        <rect key="frame" x="13" y="69" width="116" height="17"/>
+                                                        <rect key="frame" x="13" y="70" width="116" height="16"/>
                                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Relearn Procedure" id="yYk-g3-MOO">
                                                             <font key="font" usesAppearanceFont="YES"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -859,7 +859,7 @@ and then click "Next"</string>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="grayre" id="XsH-A2-FAs"/>
                                             </imageView>
                                             <textField autoresizesSubviews="NO" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sH9-mG-ARm">
-                                                <rect key="frame" x="369" y="395" width="143" height="17"/>
+                                                <rect key="frame" x="369" y="395" width="143" height="16"/>
                                                 <textFieldCell key="cell" selectable="YES" editable="YES" alignment="center" placeholderString="Original sensor ID" id="A2L-1c-tfa">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" red="0.073717825109999996" green="0.213145107" blue="0.3215825558" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -867,7 +867,7 @@ and then click "Next"</string>
                                                 </textFieldCell>
                                             </textField>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VIb-lv-Wh3">
-                                                <rect key="frame" x="369" y="133" width="141" height="17"/>
+                                                <rect key="frame" x="369" y="134" width="141" height="16"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" alignment="center" placeholderString="Original sensor ID" id="YLy-cg-ZAq">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" red="0.073717825109999996" green="0.213145107" blue="0.3215825558" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -875,7 +875,7 @@ and then click "Next"</string>
                                                 </textFieldCell>
                                             </textField>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Cu-h8-b8g">
-                                                <rect key="frame" x="48" y="395" width="143" height="17"/>
+                                                <rect key="frame" x="48" y="395" width="143" height="16"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" alignment="center" placeholderString="Original sensor ID" id="bwW-kR-YOG">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" red="0.073717825109999996" green="0.213145107" blue="0.3215825558" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -883,7 +883,7 @@ and then click "Next"</string>
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CEC-RK-W8W">
-                                                <rect key="frame" x="393" y="334" width="96" height="17"/>
+                                                <rect key="frame" x="393" y="335" width="96" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="New sensor ID" id="ghW-3h-7Cp">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -891,7 +891,7 @@ and then click "Next"</string>
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o8K-ue-EZP">
-                                                <rect key="frame" x="71" y="194" width="96" height="17"/>
+                                                <rect key="frame" x="71" y="194" width="96" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="New sensor ID" id="KCV-u1-OHr">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -899,7 +899,7 @@ and then click "Next"</string>
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jGZ-Dc-Sq0">
-                                                <rect key="frame" x="71" y="334" width="96" height="17"/>
+                                                <rect key="frame" x="71" y="335" width="96" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="New sensor ID" id="f0Y-jJ-MRE">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -907,7 +907,7 @@ and then click "Next"</string>
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gck-1j-Ew2">
-                                                <rect key="frame" x="393" y="194" width="96" height="17"/>
+                                                <rect key="frame" x="393" y="194" width="96" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="New sensor ID" id="lmW-lG-1do">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -915,7 +915,7 @@ and then click "Next"</string>
                                                 </textFieldCell>
                                             </textField>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wtk-Ry-tdV">
-                                                <rect key="frame" x="48" y="133" width="143" height="17"/>
+                                                <rect key="frame" x="48" y="134" width="143" height="16"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" alignment="center" placeholderString="Original sensor ID" id="SRh-NZ-35t">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" red="0.073717825109999996" green="0.213145107" blue="0.3215825558" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1039,7 +1039,7 @@ and then click "Next"</string>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="img_Tool connection prompt" id="fNQ-zb-PfW"/>
                                     </imageView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nhs-aL-aXS">
-                                        <rect key="frame" x="178" y="200" width="445" height="22"/>
+                                        <rect key="frame" x="178" y="200" width="445" height="21"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Please connect with Scanner and USB PAD or LF PAD." id="JhS-N2-v6n">
                                             <font key="font" metaFont="system" size="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1188,7 +1188,7 @@ and then click "Next"</string>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="img_Bar" id="iJo-mc-gPq"/>
                                     </imageView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="odJ-uC-3zr">
-                                        <rect key="frame" x="130" y="518" width="296" height="22"/>
+                                        <rect key="frame" x="130" y="519" width="296" height="21"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Orange TPMS Programming System" id="UUL-62-QGJ">
                                             <font key="font" metaFont="system" size="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
