@@ -10,7 +10,7 @@ import Foundation
 class Function{
   
     static func Signin(_ admin:String,_ password:String,_ act:Enroll){
-        let url = URL(string: "http://35.240.51.141/App_Asmx/ToolApp.asmx")!
+        let url = URL(string: "http://bento2.orange-electronic.com/App_Asmx/ToolApp.asmx")!
         var request = URLRequest(url: url)
         request.setValue("application/soap+xml; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
