@@ -16,6 +16,8 @@ extension NSImage.Name {
      static let img_rectangle_gray = NSImage.Name("img_rectangle_gray")
      static let id1 = NSImage.Name("ID1")
      static let id2 = NSImage.Name("id2")
+     static let Prbackg = NSImage.Name("graybtn")
+    static let Prbackb = NSImage.Name("button_normal")
     static let pr1 = NSImage.Name("pr1")
     static let PR2 = NSImage.Name("PR2")
      static let img_rectangle_Green = NSImage.Name("img_rectangle_Green")

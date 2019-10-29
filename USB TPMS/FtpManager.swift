@@ -11,7 +11,8 @@ import CFNetwork
 import SQLite3
 class FtpManage{
     func DowloadS19(_ s19:String)->String{
-           let url = URL(string: "http://35.240.51.141:8077/Database/SensorCode/SIII/\(s19)/\(GetS19name(s19))")
+           let s19name=GetS19name(s19)
+           let url = URL(string: "http://bento2.orange-electronic.com/Orange%20Cloud/Database/SensorCode/SIII/\(s19)/\(s19name)")
            var data: Data? = nil
            if let anUrl = url {
                do{
@@ -25,26 +26,27 @@ class FtpManage{
            }
            return "false"
        }
-       func GetS19name(_ name:String) -> String {
-           let url = URL(string: "http://35.240.51.141:8077/Database/SensorCode/SIII/\(name)/")
-            var data: Data? = nil
-                 if let anUrl = url {
-                     do{
-                         try data = Data(contentsOf: anUrl)
-                       let ds=String(decoding: data!, as: UTF8.self).components(separatedBy: "HREF=")
-                         let filename=ds[2].components(separatedBy: ">")[1].components(separatedBy: "<")[0]
-                         print(filename)
-                         return filename
-                     }catch{print(error)
-                         return "false"
-                     }
-                 }
-                 return "false"
-       }
+    func GetS19name(_ name:String) -> String {
+        let url = URL(string: "http://bento2.orange-electronic.com/Orange%20Cloud/Database/SensorCode/SIII/\(name)/")
+         var data: Data? = nil
+              if let anUrl = url {
+                  do{
+                      try data = Data(contentsOf: anUrl)
+                    let ds=String(decoding: data!, as: UTF8.self).components(separatedBy: "HREF=")
+                      let filename=ds[2].components(separatedBy: ">")[1].components(separatedBy: "<")[0]
+                      print(filename)
+                      return filename
+                  }catch{print(error)
+                      return "false"
+                  }
+              }
+              return "false"
+    }
+
        func DowloadMmy(_ deledate:AppDelegate)->Bool{
            let mmyan=mmyname()
            print("donload")
-           let url = URL(string: "http://35.240.51.141:8077/Database/MMY/EU/\(mmyan)")
+           let url = URL(string: "http://bento2.orange-electronic.com/Orange%20Cloud/Database/MMY/EU/\(mmyan)")
            var data: Data? = nil
            if let anUrl = url {
                do{
@@ -68,7 +70,7 @@ class FtpManage{
            return false
        }
        func mmyname()->String {
-           let url = URL(string: "http://35.240.51.141:8077/Database/MMY/EU/")
+           let url = URL(string: "http://bento2.orange-electronic.com/Orange%20Cloud/Database/MMY/EU/")
            var data: Data? = nil
            if let anUrl = url {
                do{

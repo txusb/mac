@@ -376,6 +376,8 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
     @IBOutlet var selectpad: NSPopUpButton!
     @IBOutlet var label2: NSTextField!
     
+    @IBOutlet var prback: NSImageView!
+    
     @IBOutlet var label11: NSTextField!
     @IBOutlet var PRT: NSTextField!
     
@@ -579,6 +581,7 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
     
     @IBAction func MakeAction(_ sender: Any) {
         SetBtText(MakePop.selectedItem!.title,MakeBt,false)
+         prback.image=NSImage.init(named:NSImage.Name.Prbackg)
     }
     
     @IBAction func reselect(_ sender: Any) {
@@ -597,6 +600,7 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
         SetBtText("Number of tires",numbertires,false)
         SetBtText("Model",ModelBt,false)
         SetBtText("Year",YearBt,false)
+
     }
     func SetBtText(_ text:String,_ bt:NSButton,_ center:Bool){
         let pstyle = NSMutableParagraphStyle()
@@ -623,6 +627,7 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
     
     @IBAction func ModelAction(_ sender: Any) {
         SetBtText(ModelPop.selectedItem!.title,ModelBt,false)
+         prback.image=NSImage.init(named:NSImage.Name.Prbackg)
     }
     @IBAction func SelectYeay(_ sender: Any) {
         if(ModelBt.title != "Model"){
@@ -635,6 +640,7 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
     
     @IBAction func YearAction(_ sender: Any) {
         SetBtText(YearPop.selectedItem!.title,YearBt,false)
+         prback.image=NSImage.init(named:NSImage.Name.Prbackb)
         first=true
         mmynum=self.db.QueryS19(MakePop.selectedItem!.title,ModelPop.selectedItem!.title,YearPop.selectedItem!.title)
         Lf=db.QueryLf(mmynum)
