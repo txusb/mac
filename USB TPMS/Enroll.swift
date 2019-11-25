@@ -15,6 +15,7 @@ class Enroll: NSViewController {
     @IBOutlet var error: NSTextField!
     @IBOutlet var userlo: NSTextField!
  
+    @IBOutlet var register: NSButton!
     @IBOutlet var apinner: NSPopUpButton!
     @IBOutlet var tit: NSTextField!
     @IBOutlet var Setting: NSButton!
@@ -52,6 +53,15 @@ Function.Signin(admin.stringValue,pass.stringValue , self)
         apinner.performClick(self)
     }
     
+    @IBAction func register(_ sender: Any) {
+        let Register =  self.storyboard!.instantiateController(withIdentifier: NSStoryboard.Name("Register")) as! Register
+        main.addChild(Register)
+        Register.view.frame = main.view.bounds
+        Register.enroll=self
+        main.view=Register.view
+
+    }
+    
     @IBAction func select(_ sender: Any) {
         SetBtText(apinner.selectedItem!.title,Setting,true)
         Language.writeshare( Setting.title,"language")
@@ -62,6 +72,7 @@ Function.Signin(admin.stringValue,pass.stringValue , self)
         userlo.stringValue=Language.SetLanguAge(2)
         error.stringValue=Language.SetLanguAge(43)
         SetBtText(Language.SetLanguAge(5),enbt,true)
+        SetBtText(Language.SetLanguAge(77),register,true)
         SetBtText(Language.getShare("language"),Setting,true)
 
     }

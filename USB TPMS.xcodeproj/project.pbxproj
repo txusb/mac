@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		100F97822384089D002AC2BD /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100F97802384089D002AC2BD /* Register.swift */; };
+		100F97832384089D002AC2BD /* Register.xib in Resources */ = {isa = PBXBuildFile; fileRef = 100F97812384089D002AC2BD /* Register.xib */; };
 		10B238A4231664930063072F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B238A3231664930063072F /* AppDelegate.swift */; };
 		10B238A6231664930063072F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B238A5231664930063072F /* ViewController.swift */; };
 		10B238A8231664940063072F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10B238A7231664940063072F /* Assets.xcassets */; };
@@ -96,6 +98,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		100F97802384089D002AC2BD /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		100F97812384089D002AC2BD /* Register.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Register.xib; sourceTree = "<group>"; };
 		10B238A0231664930063072F /* USB TPMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USB TPMS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10B238A3231664930063072F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10B238A5231664930063072F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 				10B238A9231664940063072F /* Main.storyboard */,
 				10B238AC231664940063072F /* Info.plist */,
 				10B238AD231664940063072F /* USB_TPMS.entitlements */,
+				100F97802384089D002AC2BD /* Register.swift */,
+				100F97812384089D002AC2BD /* Register.xib */,
 			);
 			path = "USB TPMS";
 			sourceTree = "<group>";
@@ -357,6 +363,7 @@
 				10B238DE231665080063072F /* Main.storyboard in Resources */,
 				10B238DF231665080063072F /* child.plist in Resources */,
 				10B238DC231665080063072F /* MainPrace.xib in Resources */,
+				100F97832384089D002AC2BD /* Register.xib in Resources */,
 				10B238A8231664940063072F /* Assets.xcassets in Resources */,
 				10B238F42316680F0063072F /* simple-loader2.json in Resources */,
 				10B238D1231665080063072F /* parent.plist in Resources */,
@@ -421,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10B238D4231665080063072F /* Extend.swift in Sources */,
+				100F97822384089D002AC2BD /* Register.swift in Sources */,
 				10B238D7231665080063072F /* CRC16.swift in Sources */,
 				10B238D9231665080063072F /* MainPrace.swift in Sources */,
 				10B238D2231665080063072F /* Sqlhelper.swift in Sources */,
