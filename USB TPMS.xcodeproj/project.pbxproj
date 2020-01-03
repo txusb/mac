@@ -33,41 +33,27 @@
 		10B238DE231665080063072F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10B238C9231665080063072F /* Main.storyboard */; };
 		10B238DF231665080063072F /* child.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10B238CB231665080063072F /* child.plist */; };
 		10B238E0231665080063072F /* Extension.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10B238CC231665080063072F /* Extension.xib */; };
-		10B238EA231665760063072F /* ORSSerial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B238E7231665630063072F /* ORSSerial.framework */; };
-		10B238EB231665760063072F /* ORSSerial.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10B238E7231665630063072F /* ORSSerial.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		10B238EE231665760063072F /* ORSSerialPort Tests.xctest in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 10B238E9231665630063072F /* ORSSerialPort Tests.xctest */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10B238F42316680F0063072F /* simple-loader2.json in Resources */ = {isa = PBXBuildFile; fileRef = 10B238F32316680F0063072F /* simple-loader2.json */; };
 		10B239052318FA620063072F /* SersorRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B239042318FA620063072F /* SersorRecord.swift */; };
+		10F9623123BF6629000A61D0 /* ORSSerial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F9622E23BF65DC000A61D0 /* ORSSerial.framework */; };
+		10F9623223BF6629000A61D0 /* ORSSerial.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10F9622E23BF65DC000A61D0 /* ORSSerial.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10F9623323BF6629000A61D0 /* ORSSerialPort Tests.xctest in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 10F9623023BF65DC000A61D0 /* ORSSerialPort Tests.xctest */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A5EB34F77B3AB9A9A779B17B /* Pods_USB_TPMS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F5811BE40B422A9C5B2ACC /* Pods_USB_TPMS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		10B238E6231665630063072F /* PBXContainerItemProxy */ = {
+		10F9622D23BF65DC000A61D0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 10B238E1231665630063072F /* ORSSerialPort.xcodeproj */;
+			containerPortal = 10F9622823BF65DC000A61D0 /* ORSSerialPort.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 9DCA89121A2BB106009285EB;
 			remoteInfo = ORSSerial;
 		};
-		10B238E8231665630063072F /* PBXContainerItemProxy */ = {
+		10F9622F23BF65DC000A61D0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 10B238E1231665630063072F /* ORSSerialPort.xcodeproj */;
+			containerPortal = 10F9622823BF65DC000A61D0 /* ORSSerialPort.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 9D7472131B6D7767002D8B10;
-			remoteInfo = "ORSSerialPort Tests";
-		};
-		10B238EC231665760063072F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 10B238E1231665630063072F /* ORSSerialPort.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9DCA89111A2BB106009285EB;
-			remoteInfo = ORSSerial;
-		};
-		10B238EF231665760063072F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 10B238E1231665630063072F /* ORSSerialPort.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9D7472121B6D7767002D8B10;
 			remoteInfo = "ORSSerialPort Tests";
 		};
 /* End PBXContainerItemProxy section */
@@ -79,7 +65,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				10B238EB231665760063072F /* ORSSerial.framework in Embed Frameworks */,
+				10F9623223BF6629000A61D0 /* ORSSerial.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,7 +76,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				10B238EE231665760063072F /* ORSSerialPort Tests.xctest in Embed PlugIns */,
+				10F9623323BF6629000A61D0 /* ORSSerialPort Tests.xctest in Embed PlugIns */,
 			);
 			name = "Embed PlugIns";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,9 +114,9 @@
 		10B238CA231665080063072F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		10B238CB231665080063072F /* child.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = child.plist; sourceTree = "<group>"; };
 		10B238CC231665080063072F /* Extension.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Extension.xib; sourceTree = "<group>"; };
-		10B238E1231665630063072F /* ORSSerialPort.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ORSSerialPort.xcodeproj; path = "../ORSSerialPort-master/Framework Project/ORSSerialPort.xcodeproj"; sourceTree = "<group>"; };
 		10B238F32316680F0063072F /* simple-loader2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "simple-loader2.json"; path = "../simple-loader2.json"; sourceTree = "<group>"; };
 		10B239042318FA620063072F /* SersorRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SersorRecord.swift; sourceTree = "<group>"; };
+		10F9622823BF65DC000A61D0 /* ORSSerialPort.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ORSSerialPort.xcodeproj; path = "ORSSerialPort-master/Framework Project/ORSSerialPort.xcodeproj"; sourceTree = "<group>"; };
 		15A98A158C7AAD2EB6B10809 /* Pods-USB TPMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USB TPMS.release.xcconfig"; path = "Target Support Files/Pods-USB TPMS/Pods-USB TPMS.release.xcconfig"; sourceTree = "<group>"; };
 		27F5811BE40B422A9C5B2ACC /* Pods_USB_TPMS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USB_TPMS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D634FCBA8B5A3A3569D0B5F7 /* Pods-USB TPMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USB TPMS.debug.xcconfig"; path = "Target Support Files/Pods-USB TPMS/Pods-USB TPMS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,7 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5EB34F77B3AB9A9A779B17B /* Pods_USB_TPMS.framework in Frameworks */,
-				10B238EA231665760063072F /* ORSSerial.framework in Frameworks */,
+				10F9623123BF6629000A61D0 /* ORSSerial.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,8 +138,8 @@
 		10B23897231664930063072F = {
 			isa = PBXGroup;
 			children = (
+				10F9622823BF65DC000A61D0 /* ORSSerialPort.xcodeproj */,
 				10B238F32316680F0063072F /* simple-loader2.json */,
-				10B238E1231665630063072F /* ORSSerialPort.xcodeproj */,
 				10B238A2231664930063072F /* USB TPMS */,
 				10B238A1231664930063072F /* Products */,
 				3D70BE81485BFB7E6665F592 /* Pods */,
@@ -238,11 +224,11 @@
 			path = Base.lproj;
 			sourceTree = "<group>";
 		};
-		10B238E2231665630063072F /* Products */ = {
+		10F9622923BF65DC000A61D0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				10B238E7231665630063072F /* ORSSerial.framework */,
-				10B238E9231665630063072F /* ORSSerialPort Tests.xctest */,
+				10F9622E23BF65DC000A61D0 /* ORSSerial.framework */,
+				10F9623023BF65DC000A61D0 /* ORSSerialPort Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -282,8 +268,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				10B238ED231665760063072F /* PBXTargetDependency */,
-				10B238F0231665760063072F /* PBXTargetDependency */,
 			);
 			name = "USB TPMS";
 			productName = "USB TPMS";
@@ -326,8 +310,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 10B238E2231665630063072F /* Products */;
-					ProjectRef = 10B238E1231665630063072F /* ORSSerialPort.xcodeproj */;
+					ProductGroup = 10F9622923BF65DC000A61D0 /* Products */;
+					ProjectRef = 10F9622823BF65DC000A61D0 /* ORSSerialPort.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -338,18 +322,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		10B238E7231665630063072F /* ORSSerial.framework */ = {
+		10F9622E23BF65DC000A61D0 /* ORSSerial.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ORSSerial.framework;
-			remoteRef = 10B238E6231665630063072F /* PBXContainerItemProxy */;
+			remoteRef = 10F9622D23BF65DC000A61D0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		10B238E9231665630063072F /* ORSSerialPort Tests.xctest */ = {
+		10F9623023BF65DC000A61D0 /* ORSSerialPort Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "ORSSerialPort Tests.xctest";
-			remoteRef = 10B238E8231665630063072F /* PBXContainerItemProxy */;
+			remoteRef = 10F9622F23BF65DC000A61D0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -448,19 +432,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		10B238ED231665760063072F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ORSSerial;
-			targetProxy = 10B238EC231665760063072F /* PBXContainerItemProxy */;
-		};
-		10B238F0231665760063072F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "ORSSerialPort Tests";
-			targetProxy = 10B238EF231665760063072F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		10B238A9231664940063072F /* Main.storyboard */ = {
