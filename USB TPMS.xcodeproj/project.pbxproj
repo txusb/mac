@@ -39,6 +39,7 @@
 		10F9623323BF6629000A61D0 /* ORSSerialPort Tests.xctest in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 10F9623023BF65DC000A61D0 /* ORSSerialPort Tests.xctest */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10F9623523BF9223000A61D0 /* simple-loader2.json in Resources */ = {isa = PBXBuildFile; fileRef = 10F9623423BF9223000A61D0 /* simple-loader2.json */; };
 		A5EB34F77B3AB9A9A779B17B /* Pods_USB_TPMS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F5811BE40B422A9C5B2ACC /* Pods_USB_TPMS.framework */; };
+		CAEBAF9923CEB70B004B7F40 /* SensorBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEBAF9823CEB70B004B7F40 /* SensorBean.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		10F9623423BF9223000A61D0 /* simple-loader2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "simple-loader2.json"; sourceTree = "<group>"; };
 		15A98A158C7AAD2EB6B10809 /* Pods-USB TPMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USB TPMS.release.xcconfig"; path = "Target Support Files/Pods-USB TPMS/Pods-USB TPMS.release.xcconfig"; sourceTree = "<group>"; };
 		27F5811BE40B422A9C5B2ACC /* Pods_USB_TPMS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USB_TPMS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAEBAF9823CEB70B004B7F40 /* SensorBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorBean.swift; sourceTree = "<group>"; };
 		D634FCBA8B5A3A3569D0B5F7 /* Pods-USB TPMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USB TPMS.debug.xcconfig"; path = "Target Support Files/Pods-USB TPMS/Pods-USB TPMS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,6 +186,7 @@
 				10B238AD231664940063072F /* USB_TPMS.entitlements */,
 				100F97802384089D002AC2BD /* Register.swift */,
 				100F97812384089D002AC2BD /* Register.xib */,
+				CAEBAF9823CEB70B004B7F40 /* SensorBean.swift */,
 			);
 			path = "USB TPMS";
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10B238D4231665080063072F /* Extend.swift in Sources */,
+				CAEBAF9923CEB70B004B7F40 /* SensorBean.swift in Sources */,
 				100F97822384089D002AC2BD /* Register.swift in Sources */,
 				10B238D7231665080063072F /* CRC16.swift in Sources */,
 				10B238D9231665080063072F /* MainPrace.swift in Sources */,
@@ -573,8 +577,8 @@
 			baseConfigurationReference = D634FCBA8B5A3A3569D0B5F7 /* Pods-USB TPMS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = HEQGGF6N89;
 				INFOPLIST_FILE = "USB TPMS/Info.plist";
@@ -585,7 +589,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = orange.macos.usbtpms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = TheAD;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -595,8 +599,8 @@
 			baseConfigurationReference = 15A98A158C7AAD2EB6B10809 /* Pods-USB TPMS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = HEQGGF6N89;
 				INFOPLIST_FILE = "USB TPMS/Info.plist";
@@ -607,7 +611,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = orange.macos.usbtpms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = TheAD;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

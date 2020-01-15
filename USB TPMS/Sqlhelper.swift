@@ -158,4 +158,21 @@ class Sqlhelper {
                 } }  }
         return 0
     }
+    func SensorModel(_ s19:String)->String{
+              if deledate.db != nil {
+                  let sql="select `Sensor` from `Summary table` where `Direct Fit`='\(s19)'"
+                  var statement:OpaquePointer? = nil
+                  if sqlite3_prepare(deledate.db,sql,-1,&statement,nil) != SQLITE_OK{
+                      let errmsg=String(cString:sqlite3_errmsg(deledate.db))
+                      print(errmsg)
+                  }
+                  while sqlite3_step(statement)==SQLITE_ROW{
+                      let iid = sqlite3_column_text(statement,0)
+                      if iid != nil{
+                          let iids = String(cString: iid!)
+                          print("sensor:\(iids)")
+                          return iids
+                      } }  }
+              return ""
+          }
 }

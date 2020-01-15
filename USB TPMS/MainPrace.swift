@@ -10,6 +10,9 @@ import Cocoa
 import Lottie
 import CoreBluetooth
 class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, CBPeripheralDelegate,NSWindowDelegate{
+    var SensorMode=""
+    var spversion=""
+    
     var mmynum:String!=nil
     var connectblename="USB_PROG.PAD"
     var ISRUN=false
@@ -199,7 +202,7 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
         }
         print("---------收到數據ㄦ---------")
         print(TmpData)
-        if(TmpData.count==CheckLen){
+        if(TmpData.count==CheckLen||CheckLen==0){
             Rx=TmpData
             //            print("---------收到數據ㄦ---------")
             //            print(Rx)
@@ -462,7 +465,7 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
     override func viewDidAppear() {
         self.view.window?.delegate = self
     }
-   
+    
     func windowShouldClose(_ sender: NSWindow) -> Bool {
         print("close")
         NSApplication.shared.terminate(self)
@@ -482,7 +485,6 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-      
         command.act=self
         if(admin==""){
             //           enroll.
@@ -561,8 +563,8 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
         la.font = NSFont.systemFont(ofSize: size*refont)
         la.sizeToFit()
     }
-   
-     func controlTextDidChange(_ notification : Notification) {
+    
+    func controlTextDidChange(_ notification : Notification) {
         if let textField = notification.object as? NSTextField {
             let string=textField.stringValue
             let aSet = NSCharacterSet(charactersIn:"0123456789abcdefABCDEF").inverted
@@ -581,7 +583,7 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
     
     @IBAction func MakeAction(_ sender: Any) {
         SetBtText(MakePop.selectedItem!.title,MakeBt,false)
-         prback.image=NSImage.init(named:NSImage.Name.Prbackg)
+        prback.image=NSImage.init(named:NSImage.Name.Prbackg)
     }
     
     @IBAction func reselect(_ sender: Any) {
@@ -600,7 +602,7 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
         SetBtText("Number of tires",numbertires,false)
         SetBtText("Model",ModelBt,false)
         SetBtText("Year",YearBt,false)
-
+        
     }
     func SetBtText(_ text:String,_ bt:NSButton,_ center:Bool){
         let pstyle = NSMutableParagraphStyle()
@@ -627,7 +629,7 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
     
     @IBAction func ModelAction(_ sender: Any) {
         SetBtText(ModelPop.selectedItem!.title,ModelBt,false)
-         prback.image=NSImage.init(named:NSImage.Name.Prbackg)
+        prback.image=NSImage.init(named:NSImage.Name.Prbackg)
     }
     @IBAction func SelectYeay(_ sender: Any) {
         if(ModelBt.title != "Model"){
@@ -640,7 +642,7 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
     
     @IBAction func YearAction(_ sender: Any) {
         SetBtText(YearPop.selectedItem!.title,YearBt,false)
-         prback.image=NSImage.init(named:NSImage.Name.Prbackb)
+        prback.image=NSImage.init(named:NSImage.Name.Prbackb)
         first=true
         mmynum=self.db.QueryS19(MakePop.selectedItem!.title,ModelPop.selectedItem!.title,YearPop.selectedItem!.title)
         Lf=db.QueryLf(mmynum)
@@ -649,8 +651,17 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
         dowloadmmy()
         pr(self)
         relarmtext.string=self.db.QueryRelarm("Relearn Procedure (English)", MakePop.selectedItem!.title,ModelPop.selectedItem!.title,YearPop.selectedItem!.title)
+        spversion=db.SensorModel(mmynum)
+        if(spversion=="SP201"){
+            SensorMode=SensorBean._433
+        }
+        if(spversion=="SP202"){
+            SensorMode=SensorBean._315
+        }
     }
+    
     var first=true
+    var beans=[SensorBean(),SensorBean(),SensorBean(),SensorBean()]
     func UdCondition(){
         var tt="Year"
         DispatchQueue.global().async {
@@ -663,12 +674,19 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
             while(self.first==false){sleep(1)
             }
             for i in 0...1{
-                let CH1=self.command.Command11(i, 1)
-                var Id1=self.command.ID
-                let CH2=self.command.Command11(i, 2)
-                var Id2=self.command.ID
+                let CH1=self.command.Command11(i, 1,self.SensorMode)
+                var Id1=CH1.id
+                let CH2=self.command.Command11(i, 2,self.SensorMode)
+                var Id2=CH2.id
+                if(i==0){
+                    self.beans[0]=CH1
+                    self.beans[1]=CH2
+                }else{
+                    self.beans[2]=CH1
+                    self.beans[3]=CH2
+                }
                 DispatchQueue.main.async {
-                    if(CH1){
+                    if(CH1.result){
                         if(self.mmynum=="RN1628"||self.mmynum=="SI2048"){
                             let Writetmp=Id1.sub(0..<2)+"XX"+Id1.sub(4..<6)+"YY"
                             Id1=Writetmp.replace("XX", Id1.sub(6..<8)).replace("YY", Id1.sub(2..<4))
@@ -677,26 +695,26 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
                         if(i==0){
                             self.Lfid=Id1
                             if(self.first){
-                                self.UpdateUI(self.LF, self.PROGRAM_WAIT)}
+                                self.UpdateUI(self.LF, self.PROGRAM_WAIT,CH1.canPr)}
                             self.LFL2.stringValue=self.Lfid
                         }else{
                             self.Rfid=Id1
                             if(self.first){
-                                self.UpdateUI(self.RF, self.PROGRAM_WAIT)}
+                                self.UpdateUI(self.RF, self.PROGRAM_WAIT,CH1.canPr)}
                             self.RFL2.stringValue=self.Rfid
                         }
                     }else{
                         if(i==0){
                             self.Lfid="Unlinked"
-                            if(self.first){self.UpdateUI(self.LF, self.UN_LINK)}
+                            if(self.first){self.UpdateUI(self.LF, self.UN_LINK,CH1.canPr)}
                             self.LFL2.stringValue=self.Lfid
                         }else{
                             self.Rfid="Unlinked"
-                            if(self.first){self.UpdateUI(self.RF, self.UN_LINK)}
+                            if(self.first){self.UpdateUI(self.RF, self.UN_LINK,CH1.canPr)}
                             self.RFL2.stringValue=self.Rfid
                         }
                     }
-                    if(CH2){
+                    if(CH2.result){
                         if(self.mmynum=="RN1628"||self.mmynum=="SI2048"){
                             let Writetmp=Id2.sub(0..<2)+"XX"+Id2.sub(4..<6)+"YY"
                             Id2=Writetmp.replace("XX", Id2.sub(6..<8)).replace("YY", Id2.sub(2..<4))
@@ -704,21 +722,21 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
                         Id2=String(Id2.suffix(self.idcount))
                         if(i==0){
                             self.Lrid=Id2
-                            if(self.first){self.UpdateUI(self.LR, self.PROGRAM_WAIT)}
+                            if(self.first){self.UpdateUI(self.LR, self.PROGRAM_WAIT,CH2.canPr)}
                             self.LRL1.stringValue=self.Lrid
                         }else{
                             self.Rrid=Id2
-                            if(self.first){self.UpdateUI(self.RR, self.PROGRAM_WAIT)}
+                            if(self.first){self.UpdateUI(self.RR, self.PROGRAM_WAIT,CH2.canPr)}
                             self.RRL1.stringValue=self.Rrid
                         }
                     }else{
                         if(i==0){
                             self.Lrid="Unlinked"
-                            if(self.first){self.UpdateUI(self.LR, self.UN_LINK)}
+                            if(self.first){self.UpdateUI(self.LR, self.UN_LINK,true)}
                             self.LRL1.stringValue=self.Lrid
                         }else{
                             self.Rrid="Unlinked"
-                            if(self.first){self.UpdateUI(self.RR, self.UN_LINK)}
+                            if(self.first){self.UpdateUI(self.RR, self.UN_LINK,true)}
                             self.RRL1.stringValue=self.Rrid
                         }
                     }
@@ -760,7 +778,7 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
             
         }
     }
-    func UpdateUI(_ position:Int,_ situation:Int){
+    func UpdateUI(_ position:Int,_ situation:Int,_ canPr:Bool){
         switch position {
         case LF:
             LFC.image=NSImage.init(named:NSImage.Name.icon_Round_normal)
@@ -784,9 +802,14 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
                 break
             case PROGRAM_WAIT:
                 LFL2.stringValue=Lfid
-                LFI2.image=NSImage.init(named:NSImage.Name.img_rectangle_Blue)
+                
                 LFI1.image=NSImage.init(named:NSImage.Name.img_rectangle_white)
                 LFL1.isEditable=true
+                if(canPr){
+                    LFI2.image=NSImage.init(named:NSImage.Name.img_rectangle_Blue)
+                }else{
+                    LFI2.image=NSImage.init(named:NSImage.Name.img_rectangle_error)
+                }
                 break
             default:
                 break
@@ -816,9 +839,13 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
                 break
             case PROGRAM_WAIT:
                 RFL2.stringValue=Rfid
-                RFI2.image=NSImage.init(named:NSImage.Name.img_rectangle_Blue)
                 RFI1.image=NSImage.init(named:NSImage.Name.img_rectangle_white)
                 RFL1.isEditable=true
+                if(canPr){
+                    RFI2.image=NSImage.init(named:NSImage.Name.img_rectangle_Blue)
+                }else{
+                    RFI2.image=NSImage.init(named:NSImage.Name.img_rectangle_error)
+                }
                 break
             default:
                 break
@@ -851,6 +878,11 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
                 LRI1.image=NSImage.init(named:NSImage.Name.img_rectangle_Blue)
                 LRI2.image=NSImage.init(named:NSImage.Name.img_rectangle_white)
                 LRL2.isEditable=true
+                if(canPr){
+                    LRI1.image=NSImage.init(named:NSImage.Name.img_rectangle_Blue)
+                }else{
+                    LRI1.image=NSImage.init(named:NSImage.Name.img_rectangle_error)
+                }
                 break
             default:
                 break
@@ -880,9 +912,13 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
                 break
             case PROGRAM_WAIT:
                 RRL1.stringValue=Rrid
-                RRI1.image=NSImage.init(named:NSImage.Name.img_rectangle_Blue)
                 RRI2.image=NSImage.init(named:NSImage.Name.img_rectangle_white)
                 RRL2.isEditable=true
+                if(canPr){
+                    RRI1.image=NSImage.init(named:NSImage.Name.img_rectangle_Blue)
+                }else{
+                    RRI1.image=NSImage.init(named:NSImage.Name.img_rectangle_error)
+                }
                 break
             default:
                 break
@@ -907,6 +943,12 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
     }
     
     func Program(){
+         for i in beans{
+                       if(!i.canPr){
+                        let answer = dialogOKCancel(question: "error", text: Language.SetLanguAge(84).replace("SP201", spversion))
+                           return
+                       }
+                   }
         if(PRORID=="ID"){
             if(RFL1.stringValue.count != idcount && RFL1.isEditable){return}
             if(RRL2.stringValue.count != idcount && RRL2.isEditable){return}
@@ -943,7 +985,7 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
                                 self.Rrid=WriteTmp.replace("XX", self.Rrid.sub(6..<8)).replace("YY", self.Rrid.sub(2..<4))
                             }
                             self.Rrid=String(self.Rrid.suffix(self.idcount))
-                            self.UpdateUI(self.RR, self.PROGRAM_SUCCESS)
+                            self.UpdateUI(self.RR, self.PROGRAM_SUCCESS,true)
                         }
                         if(a.sub(0..<2)=="03"){
                             self.Rfid=a.sub(3..<a.count)
@@ -952,7 +994,7 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
                                 self.Rfid=WriteTmp.replace("XX", self.Rfid.sub(6..<8)).replace("YY", self.Rfid.sub(2..<4))
                             }
                             self.Rfid=String(self.Rfid.suffix(self.idcount))
-                            self.UpdateUI(self.RF, self.PROGRAM_SUCCESS)
+                            self.UpdateUI(self.RF, self.PROGRAM_SUCCESS,true)
                         }
                         if(a.sub(0..<2)=="02"){
                             self.Lrid=a.sub(3..<a.count)
@@ -961,7 +1003,7 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
                                 self.Lrid=WriteTmp.replace("XX", self.Lrid.sub(6..<8)).replace("YY", self.Lrid.sub(2..<4))
                             }
                             self.Lrid=String(self.Lrid.suffix(self.idcount))
-                            self.UpdateUI(self.LR, self.PROGRAM_SUCCESS)
+                            self.UpdateUI(self.LR, self.PROGRAM_SUCCESS,true)
                         }
                         if(a.sub(0..<2)=="01"){
                             self.Lfid=a.sub(3..<a.count)
@@ -970,7 +1012,7 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
                                 self.Lfid=WriteTmp.replace("XX", self.Lfid.sub(6..<8)).replace("YY", self.Lfid.sub(2..<4))
                             }
                             self.Lfid=String(self.Lfid.suffix(self.idcount))
-                            self.UpdateUI(self.LF, self.PROGRAM_SUCCESS)}}
+                            self.UpdateUI(self.LF, self.PROGRAM_SUCCESS,true)}}
                     self.UpdateUiCondition(self.PROGRAM_SUCCESS)
                     if(!condition){
                         for i in self.command.FALSE_CHANNEL{
@@ -978,44 +1020,44 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
                             switch(i){
                             case "04":
                                 self.Rrid="error"
-                                self.UpdateUI(self.RR, self.PROGRAM_FAULSE)
+                                self.UpdateUI(self.RR, self.PROGRAM_FAULSE,true)
                                 break
                             case "03":
                                 self.Rfid="error"
-                                self.UpdateUI(self.RF, self.PROGRAM_FAULSE)
+                                self.UpdateUI(self.RF, self.PROGRAM_FAULSE,true)
                                 break
                             case "02":
                                 self.Lrid="error"
-                                self.UpdateUI(self.LR, self.PROGRAM_FAULSE)
+                                self.UpdateUI(self.LR, self.PROGRAM_FAULSE,true)
                                 break
                             case "01":
                                 self.Lfid="error"
-                                self.UpdateUI(self.LF, self.PROGRAM_FAULSE)
+                                self.UpdateUI(self.LF, self.PROGRAM_FAULSE,true)
                                 break
                             default:
                                 break
                             } }
                         if(self.command.FALSE_CHANNEL.count==0&&self.command.BLANK_CHANNEL.count==0){
                             self.UpdateUiCondition(self.PROGRAM_FAULSE)
-                            self.UpdateUI(self.LF, self.PROGRAM_FAULSE)
-                            self.UpdateUI(self.LR, self.PROGRAM_FAULSE)
-                            self.UpdateUI(self.RF, self.PROGRAM_FAULSE)
-                            self.UpdateUI(self.RR, self.PROGRAM_FAULSE)
+                            self.UpdateUI(self.LF, self.PROGRAM_FAULSE,true)
+                            self.UpdateUI(self.LR, self.PROGRAM_FAULSE,true)
+                            self.UpdateUI(self.RF, self.PROGRAM_FAULSE,true)
+                            self.UpdateUI(self.RR, self.PROGRAM_FAULSE,true)
                         }
                     }
                     for a in self.command.BLANK_CHANNEL{
                         switch(a){
                         case "04":
-                            self.UpdateUI(self.RR, self.UN_LINK)
+                            self.UpdateUI(self.RR, self.UN_LINK,true)
                             break
                         case "03":
-                            self.UpdateUI(self.RF, self.UN_LINK)
+                            self.UpdateUI(self.RF, self.UN_LINK,true)
                             break
                         case "02":
-                            self.UpdateUI(self.LR, self.UN_LINK)
+                            self.UpdateUI(self.LR, self.UN_LINK,true)
                             break
                         case "01":
-                            self.UpdateUI(self.LF, self.UN_LINK)
+                            self.UpdateUI(self.LF, self.UN_LINK,true)
                             break
                         default:
                             break
@@ -1072,5 +1114,12 @@ class MainPrace: NSViewController,NSTextFieldDelegate,CBCentralManagerDelegate, 
         PRORID="ID"
         viewDidLayout()
     }
-    
+    func dialogOKCancel(question: String, text: String) -> Bool {
+        let alert = NSAlert()
+        alert.messageText = question
+        alert.informativeText = text
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "OK")
+        return alert.runModal() == .alertFirstButtonReturn
+    }
 }

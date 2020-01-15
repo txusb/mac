@@ -51,7 +51,7 @@ class SerialPortDemoController: NSObject, ORSSerialPortDelegate, NSUserNotificat
             main.TmpData=main.TmpData+String(format:"%02X",data[i])
         }
         print("USB:\(main.TmpData)")
-        if(main.TmpData.count==main.CheckLen){
+        if(main.TmpData.count==main.CheckLen||main.CheckLen==0){
             main.Rx=main.TmpData
         }
 //        if let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
